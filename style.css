@@ -1,0 +1,103 @@
+body {
+  font-family: 'Courier New', Courier, monospace;
+  text-align: center;
+  background-image: url("images/parchment_background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-gap: 20px;
+  min-height: 100vh;
+}
+
+.round-indicator {
+  grid-column: 2;
+  font-size: 1.5em;
+  color: darkred;
+  margin-bottom: 20px;
+}
+
+.result {
+  grid-column: 1 / span 3; /* Spans across all columns */
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 3em;
+  color: darkred;
+  text-shadow: 2px 2px 5px gold;
+  grid-column: 2;
+}
+
+.player-choice,
+.computer-choice {
+  display: inline-block;
+  margin: 20px;
+  border: 3px solid brown;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.player-choice {
+  grid-column: 1;
+}
+
+.computer-choice {
+  grid-column: 3;
+}
+
+.player-choice button {
+  padding: 10px 20px;
+  margin: 5px;
+  border: 2px solid brown;
+  border-radius: 5px;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.player-choice button.selected {
+  background-color: lightgreen;
+  border-color: darkgreen;
+}
+
+.fire {
+  background-image: url("images/fireball.png");
+  background-size: cover;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px orange;
+}
+
+.water {
+  background-image: url("images/water_drop.png");
+  background-size: cover;
+  box-shadow: 0px 0px 5px lightblue;
+}
+
+.earth {
+  background-image: url("images/rock.png");
+  background-size: cover;
+  box-shadow: 0px 0px 5px darkgreen;
+}
+
+#start-button {
+  padding: 8px 15px; /* Reduce button size */
+  background-color: darkgreen;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  grid-column: 2;
+  margin-top: 20px;
+}
+
+.scores {
+  grid-column: 2;
+}
+
+.scores span {
+  margin-inline: 20px;
+}

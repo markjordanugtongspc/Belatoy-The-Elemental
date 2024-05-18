@@ -92,7 +92,7 @@ function declareOverallWinner() {
   if (playerScore > computerScore) {
     resultDisplay.textContent = 'You are the overall winner!';
   } else if (playerScore < computerScore) {
-    resultDisplay.textContent = 'The computer is the overall winner!';
+    resultDisplay.textContent = 'Computer is the overall winner!';
   } else {
     resultDisplay.textContent = 'It\'s a tie!';
   }

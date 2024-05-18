@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Elemental Showdown</title>
+  <title>Belatoy Elemental Showdown</title>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <h1>Choose your Element!</h1>
+  <h1>Elementalist Showdown!</h1> 
+  <div class="scores">
+    <p class="p0">Player: Computer:</p>
+    <div class ="player"><span id="player-score">0</span></div>
+    <div class ="computer"><span id="computer-score">0</span></div>
+  </div>
   <div class="round-indicator">Round: <span id="current-round">1</span></div>
+  <h1 class="vs">VS</h1>
   <div class="player-choice">
-  <div class="result"></div>
-    <button class="fire">Fire</button>
-    <button class="water">Water</button>
-    <button class="earth">Earth</button>
+    <div class="result"></div>
   </div>
   <div class="computer-choice"></div>
-  <div class="scores">
-    <span id="player-score">Player: 0</span>
-    <span id="computer-score">Computer: 0</span>
+      <p class="p1">The best score out of 3 is the  winner.</p>
+      <p class="p2">CHOOSE YOUR ELEMENT:</p>
+  <div class="player-choice"> 
+      <button class="fire">FIRE</button>
+      <button class="water">WATER</button>
+      <button class="earth">EARTH</button>
   </div>
   <button id="start-button">Start</button>
   <script src="script.js"></script>

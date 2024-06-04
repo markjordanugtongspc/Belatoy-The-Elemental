@@ -3,7 +3,7 @@ const playerChoice = document.querySelector('.player-choice');
 const computerChoice = document.querySelector('.computer-choice');
 const resultDisplay = document.querySelector('.result');
 const startButton = document.getElementById('start-button');
-const countdownDisplay = document.createElement('div');
+const countdownDisplay = document.getElementById('count-down'); 
 const playerScoreDisplay = document.getElementById('player-score');
 const computerScoreDisplay = document.getElementById('computer-score');
 const currentRoundDisplay = document.getElementById('current-round');
@@ -41,37 +41,41 @@ function startGame() {
   sounds.start.play();
   startButton.disabled = true;
   let countdown = 3;
-  countdownDisplay.textContent = countdown;
-  countdownDisplay.className = 'countdown';
-  document.body.appendChild(countdownDisplay);
+
+  // Ensure the countdown display is part of the .count-down element
+  const countdownElement = document.querySelector('.count-down span');
+  countdownElement.textContent = countdown;
+  countdownDisplay.classList.add('active'); // Show the countdown
 
   const countdownInterval = setInterval(() => {
-    countdown--;
-    countdownDisplay.textContent = countdown;
-    sounds.countdown.play();
-    if (countdown === 0) {
-      clearInterval(countdownInterval);
-      countdownDisplay.remove();
+      countdown--;
+      countdownElement.textContent = countdown; // Update the existing element
+      sounds.countdown.play();
 
-      const computerElement = getRandomChoice();
-      displayChoices(playerSelection, computerElement);
-      const winner = determineWinner(playerSelection, computerElement);
+      if (countdown === 0) {
+          clearInterval(countdownInterval);
+          countdownDisplay.classList.remove('active'); // Hide after countdown ends
+          countdownElement.textContent = ''; // Clear the countdown text
 
-      if (winner !== 'draw') {
-        currentRound++;
+          const computerElement = getRandomChoice();
+          displayChoices(playerSelection, computerElement);
+          const winner = determineWinner(playerSelection, computerElement);
+
+          if (winner !== 'draw') {
+              currentRound++;
+          }
+
+          updateRoundDisplay();
+          playerSelection = null;
+          buttons.forEach(button => button.classList.remove('selected'));
+
+          if (currentRound >= 3) {
+              declareOverallWinner();
+          } else {
+              startButton.textContent = 'Next Round';
+              startButton.disabled = false;
+          }
       }
-
-      updateRoundDisplay();
-      playerSelection = null;
-      buttons.forEach(button => button.classList.remove('selected'));
-
-      if (currentRound >= 3) {
-        declareOverallWinner();
-      } else {
-        startButton.textContent = 'Next Round';
-        startButton.disabled = false;
-      }
-    }
   }, 1000);
 }
 

@@ -100,8 +100,8 @@ function declareOverallWinner() {
   // Reset the scores
   playerScore = 0;
   computerScore = 0;
-  playerScoreDisplay.textContent = 'Player: 0';
-  computerScoreDisplay.textContent = 'Computer: 0';
+  playerScoreDisplay.textContent = '0';
+  computerScoreDisplay.textContent = '0';
 
   // Reset the current round
   currentRound = 1;
@@ -150,12 +150,12 @@ function determineWinner(playerElement, computerElement) {
     resultDisplay.textContent = 'You Win!';
     playVictorySound();
     playerScore++;
-    playerScoreDisplay.textContent = `Player: ${playerScore}`;
+    playerScoreDisplay.textContent = `${playerScore}`;
   } else if (winner === 'computer') {
     resultDisplay.textContent = 'You Lose!';
     playDefeatSound();
     computerScore++;
-    computerScoreDisplay.textContent = `Computer: ${computerScore}`;
+    computerScoreDisplay.textContent = `${computerScore}`;
   } else {
     resultDisplay.textContent = 'Draw!';
     // Don't increment the round if it's a draw
